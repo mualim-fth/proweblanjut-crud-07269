@@ -1,6 +1,6 @@
 ## Tugas 1 CRUD - Sistem Manajemen Inventaris
 
-Nama: Ahmad Fatih Mu'Alim
+Nama: Ahmad Fatih Mu'Alim \
 NIM: A12.2024.07269
 
 ### tampilan/index
