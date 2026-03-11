@@ -1,4 +1,5 @@
 <?php
+// ini koneksi ke database menggunakan pdo
 $host   = "localhost";
 $user   = "root";
 $pass   = "";
