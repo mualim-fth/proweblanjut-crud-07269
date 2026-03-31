@@ -1,4 +1,12 @@
 <?php
+session_start();
+
+// cek apakah user sudah login
+if (!isset($_SESSION["username"])) {
+    header("Location: login.php");
+    exit();
+}
+
 include "config/koneksi.php";
 
 $barang = $conn->query("SELECT * FROM barang")->fetchAll(PDO::FETCH_ASSOC);
@@ -14,7 +22,7 @@ $barang = $conn->query("SELECT * FROM barang")->fetchAll(PDO::FETCH_ASSOC);
 <body>
     <div class="container">
         <div class="sidebar">
-            <h2>InveNTariS</h2>
+            <h2>SiInventaris</h2>
             <ul>
                 <li><a href="#">Dashboard</a></li>
                 <li><a href="index.php" class="active">Data Barang</a></li>
@@ -24,6 +32,14 @@ $barang = $conn->query("SELECT * FROM barang")->fetchAll(PDO::FETCH_ASSOC);
         <div class="main-content">
             <div class="page-header">
                 <h2>Data Inventaris Barang</h2>
+                <!-- USER + LOGOUT -->
+                <div style="float:right;">
+                    Selamat datang, <b><?= $_SESSION["username"]; ?></b> |
+                    <a href="logout.php">Logout</a>
+                </div>
+
+                <div style="clear: both;"></div>
+                
                 <div class="breadcrumb">
                     <a href="index.php">Home</a> /
                     <span>Data Barang</span>
