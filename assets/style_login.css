@@ -1,0 +1,149 @@
+/* ini CSS Khusus Halaman Login dan Registrasi */
+
+/* Reset dasar agar tampilan konsisten di semua browser */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Pengaturan latar belakang halaman */
+body {
+    background-color: #f1f3f6; 
+    display: flex;
+    justify-content: center; /* Kotak login ke tengah secara horizontal */
+    align-items: center;     /* Kotak login ke tengah secara vertikal */
+    min-height: 100vh;
+}
+
+/* Pembungkus utama form */
+.login-wrapper {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+/* Kotak putih tempat form berada */
+.login-box {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 15px; /* Sudut kotak agak melengkung */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Efek bayangan halus */
+}
+
+/* Gaya judul (Login / Daftar Akun) */
+.login-box h2 {
+    color: #000030; 
+    font-size: 26px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Gaya teks deskripsi di bawah judul */
+.login-box p {
+    color: #666;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Bagian Pesan Peringatan (Alert) */
+.alert {
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+}
+
+/* Warna merah untuk pesan error */
+.alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-color: #f5c6cb;
+}
+
+/* Warna hijau untuk pesan sukses */
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border-color: #c3e6cb;
+    text-align: center;
+}
+
+/* Gaya link di dalam pesan sukses */
+.alert-success a {
+    color: #155724;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* Gaya Input Form */
+.input-group {
+    margin-bottom: 20px;
+}
+
+/* Gaya tulisan label di atas kotak input */
+.input-group label {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+/* Gaya kotak input teks dan password */
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1.5px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.3s ease; /* transmisi halus saat diklik */
+}
+
+/* Efek saat kotak input sedang diklik/aktif */
+.input-group input:focus {
+    border-color: #000030;
+    box-shadow: 0 0 8px rgba(0, 0, 48, 0.1);
+}
+
+/* Gaya Tombol Utama */
+.btn-auth {
+    width: 100%;
+    padding: 13px;
+    background-color: #000030;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+/* warna tombol saat didekati kursor mouse */
+.btn-auth:hover {
+    background-color: #000055;
+}
+
+/* Gaya Navigasi Bawah (Link Daftar/Login) */
+.auth-footer {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+}
+
+.auth-footer a {
+    color: #000030;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Efek garis bawah saat link didekati kursor */
+.auth-footer a:hover {
+    text-decoration: underline;
+}
