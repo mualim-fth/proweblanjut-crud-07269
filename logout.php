@@ -1,10 +1,16 @@
 <?php
 session_start();
 
-// Hapus semua data session
+// hapus semua data session
+session_unset();
 session_destroy();
 
-// Redirect ke halaman login
+// hapus Cookie (set waktu ke masa lalu)
+if (isset($_COOKIE['user_login'])) {
+    setcookie("user_login", "", time() - 3600, "/");
+}
+
+// arahkan ke login
 header("Location: login.php");
 exit();
 ?>
