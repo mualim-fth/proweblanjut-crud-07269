@@ -1,7 +1,12 @@
 <?php
 session_start();
 
-// cek apakah user sudah login
+// Jika session kosong, coba cek cookie
+if (!isset($_SESSION["username"]) && isset($_COOKIE["user_login"])) {
+    $_SESSION["username"] = $_COOKIE["user_login"];
+}
+
+// Jika setelah cek cookie tetap kosong, berarti belum login
 if (!isset($_SESSION["username"])) {
     header("Location: login.php");
     exit();
@@ -22,20 +27,31 @@ $barang = $conn->query("SELECT * FROM barang")->fetchAll(PDO::FETCH_ASSOC);
 <body>
     <div class="container">
         <div class="sidebar">
+        <div class="sidebar-top">
             <h2>SiInventaris</h2>
             <ul>
                 <li><a href="#">Dashboard</a></li>
                 <li><a href="index.php" class="active">Data Barang</a></li>
             </ul>
         </div>
+        
+        <div class="sidebar-bottom">
+            <ul>
+                <li>
+                    <a href="logout.php" class="btn-logout" onclick="return confirm('Apakah Anda yakin ingin keluar?')">
+                        Logout
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
 
         <div class="main-content">
             <div class="page-header">
                 <h2>Data Inventaris Barang</h2>
-                <!-- USER + LOGOUT -->
+                <!-- NAMA USER YG MASUK -->
                 <div style="float:right;">
-                    Selamat datang, <b><?= $_SESSION["username"]; ?></b> |
-                    <a href="logout.php">Logout</a>
+                    Selamat datang, <b><?= $_SESSION["username"]; ?></b>
                 </div>
 
                 <div style="clear: both;"></div>
