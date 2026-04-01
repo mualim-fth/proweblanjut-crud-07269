@@ -1,7 +1,12 @@
 <?php
 session_start();
 
-// cek apakah user sudah login
+// Jika session kosong, coba cek cookie
+if (!isset($_SESSION["username"]) && isset($_COOKIE["user_login"])) {
+    $_SESSION["username"] = $_COOKIE["user_login"];
+}
+
+// Jika setelah cek cookie tetap kosong, berarti belum login
 if (!isset($_SESSION["username"])) {
     header("Location: login.php");
     exit();
