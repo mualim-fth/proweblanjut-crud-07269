@@ -51,7 +51,7 @@ $barang = $conn->query("SELECT * FROM barang")->fetchAll(PDO::FETCH_ASSOC);
                 <h2>Data Inventaris Barang</h2>
                 <!-- NAMA USER YG MASUK -->
                 <div style="float:right;">
-                    Selamat datang, <b><?= $_SESSION["username"]; ?></b>
+                    Selamat datang, <b><?= htmlspecialchars($_SESSION["username"]); ?></b>
                 </div>
 
                 <div style="clear: both;"></div>
@@ -74,6 +74,7 @@ $barang = $conn->query("SELECT * FROM barang")->fetchAll(PDO::FETCH_ASSOC);
                             <th>Jumlah</th>
                             <th>Harga</th>
                             <th>Tanggal Masuk</th>
+                            <th>Gambar</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -84,11 +85,20 @@ $barang = $conn->query("SELECT * FROM barang")->fetchAll(PDO::FETCH_ASSOC);
                         ?>
                         <tr>
                             <td><?= $no++; ?></td>
-                            <td><?= $row['id_barang']; ?></td>
-                            <td><?= $row['nama_barang']; ?></td>
-                            <td><?= $row['jumlah']; ?></td>
+                            <td><?= htmlspecialchars($row['id_barang']); ?></td>
+                            <td><?= htmlspecialchars($row['nama_barang']); ?></td>
+                            <td><?= htmlspecialchars($row['jumlah']); ?></td>
                             <td>Rp. <?= number_format($row['harga'], 0, ',', '.'); ?></td>
-                            <td><?= $row['tanggal_masuk']; ?></td>
+                            <td><?= htmlspecialchars($row['tanggal_masuk']); ?></td>
+                            <td>
+                                <?php if (!empty($row['gambar'])): ?>
+                                    <img src="uploads/<?= htmlspecialchars($row['gambar']); ?>" 
+                                        alt="<?= htmlspecialchars($row['nama_barang']); ?>"
+                                        style="max-height: 60px; border-radius: 4px;">
+                                <?php else: ?>
+                                    <span>-</span>
+                                <?php endif; ?>
+                            </td>
                             <td class="action">
                                 <a href="edit.php?id=<?= $row['id_barang']; ?>" class="edit">Edit</a>
                                 <a href="hapus.php?id=<?= $row['id_barang']; ?>" class="delete" onclick="return confirm('Apakah yakin ingin menghapus data ini?')">Hapus</a>
