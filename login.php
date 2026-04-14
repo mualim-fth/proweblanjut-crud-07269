@@ -68,11 +68,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label>Password</label>
                 <input type="password" name="password" placeholder="Masukkan password" required>
             </div>
+            <div class="input-group" style="display: flex; flex-direction: row; align-items: center; gap: 8px; margin-bottom: 15px;">
+                <input type="checkbox" name="remember" id="remember" style="width: auto; margin: 0; cursor: pointer;">
+                <label for="remember" style="margin: 0; font-weight: normal; cursor: pointer; line-height: 1;">Remember Me</label>
+            </div>
 
             <button type="submit" class="btn-auth">Masuk Sekarang</button>
             
             <div class="auth-footer">
-                Belum punya akun? <a href="register.php">Daftar Akun Baru</a>
+                Belum punya akun? <a href="register.php">Daftar</a>
             </div>
         </form>
     </div>
