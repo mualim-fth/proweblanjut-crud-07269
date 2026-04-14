@@ -15,7 +15,21 @@ if (!isset($_SESSION["username"])) {
 include 'config/koneksi.php';
 
 $id = $_GET['id'];
-$conn->query("DELETE FROM barang WHERE id_barang='$id'");
+
+// Ambil nama gambar sebelum dihapus
+$stmt = $conn->prepare("SELECT gambar FROM barang WHERE id_barang = ?");
+$stmt->execute([$id]);
+$data = $stmt->fetch(PDO::FETCH_ASSOC);
+
+// Hapus file gambar dari folder uploads jika ada
+if (!empty($data['gambar']) && file_exists('uploads/' . $data['gambar'])) {
+    unlink('uploads/' . $data['gambar']);
+}
+
+// === PREPARED STATEMENT UNTUK DELETE ===
+$stmt = $conn->prepare("DELETE FROM barang WHERE id_barang = ?");
+$stmt->execute([$id]);
 
 header("Location: index.php");
+exit();
 ?>
