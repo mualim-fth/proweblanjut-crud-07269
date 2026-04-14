@@ -235,3 +235,22 @@ table thead tr:hover {
     gap: 10px;
 }
 
+/* untuk error */
+.alert-error {
+    background-color: #fff0f0;
+    border: 1px solid #e74c3c;
+    border-radius: 6px;
+    padding: 10px 16px;
+    margin-bottom: 16px;
+    color: #c0392b !important;
+}
+
+.alert-error ul {
+    margin: 0;
+    padding-left: 18px;
+}
+
+.alert-error ul li {
+    font-size: 14px;
+    color: #c0392b !important;
+}
