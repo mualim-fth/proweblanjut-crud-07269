@@ -19,7 +19,7 @@ class BarangModel {
         $stmt = $this->conn->prepare("SELECT * FROM barang WHERE id_barang = ?");
         $stmt->execute([$id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
-    }~
+    }
 
     // 3. Menyimpan data baru
     public function save($data) {
