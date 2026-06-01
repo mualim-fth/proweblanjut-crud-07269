@@ -4,11 +4,11 @@ include "config/koneksi.php";
 
 // Cek jika sudah ada Session atau Cookie
 if (isset($_SESSION["username"])) {
-    header("Location: index.php");
+    header("Location: /proweblanjut-crud-07269/public/index.php");
     exit();
 } elseif (isset($_COOKIE["user_login"])) {
     $_SESSION["username"] = $_COOKIE["user_login"];
-    header("Location: index.php");
+    header("Location: /proweblanjut-crud-07269/public/index.php");
     exit();
 }
 
@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 setcookie("user_login", $user["username"], time() + (86400 * 7), "/");
             }
 
-            header("Location: index.php");
+            header("Location: /proweblanjut-crud-07269/public/index.php");
             exit();
         } else {
             $error = "Password salah!";
