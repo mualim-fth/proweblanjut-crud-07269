@@ -1,0 +1,11 @@
+# mengabaikan folder log dan cache jika ada
+/logs/
+/cache/
+
+# mengabaikan file konfigurasi OS dan Editor vscode
+.DS_Store
+.vscode/
+Thumbs.db
+
+# jika pakai library eksternal composer
+/vendor/
